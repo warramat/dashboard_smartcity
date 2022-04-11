@@ -1,6 +1,6 @@
 var jwt = localStorage.getItem('jwt');
 if (jwt != null) {
-  window.location.href = './login.html';
+  window.location.href = './index.html';
 }
 
 $('form').submit(async (e) => {
