@@ -1,6 +1,6 @@
 var jwt = localStorage.getItem('jwt');
 if (jwt != null) {
-  window.location.href = './index.html';
+  window.location.href = './login.html';
 }
 
 $('form').submit(async (e) => {
@@ -26,7 +26,7 @@ $('form').submit(async (e) => {
     const data = await res.json();
     localStorage.setItem('jwt', data.access_token);
     Swal.fire({
-      text: 'เรียบร้อย',
+      text: 'เข้าสู่ระบบเรียบร้อย',
       icon: 'success',
       confirmButtonText: 'OK',
       timer: 3000
