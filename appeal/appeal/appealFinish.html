@@ -30,8 +30,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400&display=swap" rel="stylesheet">
     <link href="../../index.css" rel="stylesheet">
     <link href="./appealEdit.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        .checked {
+            color: orange;
+        }
 
+        ul.images {
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        ul.images li {
+            display: inline;
+            width: 150px;
+        }
+
+        .img-row,
+        .img-row-preview {
+            width: 150px;
+        }
+
+        li {
+            margin-right: 2rem;
+        }
+
+        .btn-danger {
+            margin-top: -5rem;
+        }
     </style>
 </head>
 
@@ -46,7 +75,7 @@
                     <div class="container d-flex align-items-stretch justify-content-between">
                         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
                             <a href="#">
-                                <img alt="Logo" src="https://pakpooncity.siaminno.co.th/logo/logo.png" class="h-60px" />
+                                <img alt="Logo" src="../../img/logo.jpg" class="h-60px" />
                                 <span class="logoname">เทศบาลเมืองปากพูน</span>
                             </a>
                         </div>
@@ -374,8 +403,6 @@
                                                         </a>
                                                         <a href="#" id="tel"
                                                             class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
-                                                            <!--begin::Svg Icon | path: icons/duotone/Communication/Mail-at.svg-->
-
                                                             <span class="svg-icon svg-icon-4 me-1">
                                                                 <img src="https://pakpooncity.siaminno.co.th/media/image/tel.png"
                                                                     width="20px;" alt="image" />
@@ -383,38 +410,20 @@
                                                             <span id="tel1"></span>
                                                         </a>
                                                     </div>
-                                                    <!--end::Info-->
-
-
-
-
                                                 </div>
-                                                <!--end::User-->
-                                                <!--begin::Actions-->
-                                                <div class="d-flex my-4">
+                                                <!-- <div class="d-flex my-4">
                                                     <button type="submit" class="btn btn-primary align-self-center"
                                                         onclick="commit()">รับงาน</button>
-                                                </div>
-
-                                                <!--end::Actions-->
+                                                </div> -->
                                             </div>
-                                            <!--end::Title-->
-                                            <!--begin::Stats-->
                                             <div class="d-flex flex-wrap flex-stack">
-                                                <!--begin::Wrapper-->
                                                 <div class="d-flex flex-column flex-grow-1 pe-8">
-                                                    <!--begin::Stats-->
                                                     <div class="d-flex flex-wrap">
-                                                        <!--begin::Stat-->
                                                         <div
                                                             class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                                            <!--begin::Number-->
                                                             <div class="d-flex align-items-center">
-                                                                <!--begin::Svg Icon | path: icons/duotone/Navigation/Arrow-up.svg-->
                                                                 <span class="svg-icon svg-icon-3 svg-icon-success me-2">
-
                                                                 </span>
-                                                                <!--end::Svg Icon-->
                                                                 เวลาแจ้ง
                                                             </div>
                                                             <!--end::Number-->
@@ -440,8 +449,8 @@
                                                             <!--end::Number-->
                                                             <!--begin::Label-->
                                                             <div class="fw-bold fs-6 text-gray-400"
-                                                                style="text-align:center">
-                                                                -
+                                                                style="text-align:center" id="edit">
+
                                                             </div>
                                                             <!--end::Label-->
                                                         </div>
@@ -462,8 +471,8 @@
                                                             <!--end::Number-->
                                                             <!--begin::Label-->
                                                             <div class="fw-bold fs-6 text-gray-400"
-                                                                style="text-align:center">
-                                                                -
+                                                                style="text-align:center" id="end1">
+
                                                             </div>
                                                             <!--end::Label-->
                                                         </div>
@@ -531,7 +540,7 @@
                                     <div class="row mb-7">
                                         <label class="col-lg-4 fw-bold text-muted">สถานะ</label>
                                         <div class="col-lg-8">
-                                            <span class="fw-bold fs-6" id="status"></span>
+                                            <span class="fw-bold fs-6" id="status1"></span>
                                         </div>
                                     </div>
                                     <div class="mb-8">
@@ -541,9 +550,11 @@
                                             </div>
                                             <div class="separator separator-dashed border-gray-300 mb-9 mt-5"></div>
                                         </div>
+                                        <div class="row g-10 row-cols-2 row-cols-lg-5">
 
-                                        <ul class="images" id="preview"></ul>
+                                            <ul class="images" id="preview"></ul>
 
+                                        </div>
                                     </div>
                                     <div class="">
                                         <div class="m-0">
@@ -568,11 +579,103 @@
                                 </div>
                             </div>
 
+
+                            <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+                                <div class="card-header cursor-pointer">
+                                    <div class="card-title m-0">
+                                        <h3 class="fw-bolder m-0">จัดการ</h3>
+                                    </div>
+                                </div>
+                                <div class="card-body p-9">
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted">เวลาแจ้ง</label>
+                                        <div class="col-lg-8">
+                                            <span class="fw-bold fs-6" id="adminstart"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted">เวลารับงาน</label>
+                                        <div class="col-lg-8 fv-row">
+                                            <span class="fw-bold fs-6" id="adminend">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted">เวลาปิดงาน</label>
+                                        <div class="col-lg-8 fv-row">
+                                            <span class="fw-bold fs-6" id="end">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted">เวลาแจ้งข้อความ</label>
+                                        <div class="col-lg-8 fv-row">
+                                            <span class="fw-bold fs-6" id="response_time">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted">สถานะ</label>
+                                        <div class="col-lg-8 fv-row">
+                                            <span class="fw-bold fs-6" id="status"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted">ข้อความตอบกลับ</label>
+                                        <div class="col-lg-8">
+                                            <span class="fw-bold fs-6" id="response_message"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted">รายละเอียดการแก้ไข</label>
+                                        <div class="col-lg-8 fv-row">
+                                            <span class="fw-bold fs-6" id="details">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted">รูปภาพ</label>
+                                        <ul class="images" id="add_img"></ul>
+                                    </div>
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted">ประเมินความพึงพอใจ</label>
+                                        <div class="col-lg-8" id="star"></div>
+                                    </div>
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted">ข้อเสนอแนะ</label>
+                                        <div class="col-lg-8" id="Comment">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+                                <div class="card-header cursor-pointer">
+                                    <div class="card-title m-0">
+                                        <h3 class="fw-bolder m-0">แจ้งข้อความ</h3>
+                                    </div>
+                                </div>
+                                <div class="card-body p-9">
+                                    <div class="row mb-7">
+                                        <label class="col-lg-4 fw-bold text-muted"><img
+                                                src="https://pakpooncity.siaminno.co.th/media/image/line.png"
+                                                width="50px;" alt="image" /> </label>
+                                        <div class="col-lg-8">
+                                            <span id="msg" class="fw-bolder fs-6 text-dark"
+                                                style="display: flex;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <script src="./appealFinish.js"></script>
             <script src="./appealEdit.js"></script>
             <script src="../../utility.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>

@@ -1,35 +1,28 @@
-body {
-  margin: 20px;
-  color: #ddd;
+.swal2-popup .swal2-icon {
+  margin: 2rem 0 0 3rem;
 }
 
-button {
-  display: none;
-  width: 100%;
-  padding: 8px 0;
-  margin: 8px auto;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
+.h250 {
+  height: 250px;
 }
 
-p {
-  border-bottom: 1px dashed #bbb;
+ul.images {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
-#pictureUrl {
-  margin: 0 auto;
-  width: 32%;
-  display: -moz-box;
-  display: -webkit-box;
-  display: box;
-  -moz-box-pack: center;
-  -moz-box-align: center;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-  box-pack: center;
-  box-align: center;
-  -moz-border-radius: 256px;
-  -webkit-border-radius: 256px;
-  border-radius: 256px;
+ul.images li {
+  display: inline;
+  width: 150px;
+}
+
+.img-row-preview {
+  width: 150px;
+}
+
+li {
+  margin-right: 2rem;
 }
