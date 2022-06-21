@@ -85,7 +85,6 @@ function setPage(data) {
     ).href = `https://www.google.com/maps?q=${data.gps.lat},${data.gps.lng}`;
     document.getElementById('tel').href = 'tel:' + data.telephone;
     document.getElementById('tel1').innerText = data.telephone;
-
     document.getElementById('status1').innerText = data.status;
     document.getElementById('end1').innerText = data.end;
     renderStar(data.Star);
