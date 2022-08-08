@@ -31,14 +31,12 @@
             font-family: Arial;
         }
 
-        /* Style the tab */
         .tab {
             overflow: hidden;
             border: 1px solid #ccc;
             background-color: #f1f1f1;
         }
 
-        /* Style the buttons inside the tab */
         .tab button {
             background-color: inherit;
             float: left;
@@ -50,17 +48,14 @@
             font-size: 17px;
         }
 
-        /* Change background color of buttons on hover */
         .tab button:hover {
             background-color: #ddd;
         }
 
-        /* Create an active/current tablink class */
         .tab button.active {
             background-color: #ccc;
         }
 
-        /* Style the tab content */
         .tabcontent {
             display: none;
             padding: 6px 12px;
@@ -126,17 +121,13 @@
                 <div id="kt_header" class="header align-items-stretch">
                     <div class="container d-flex align-items-stretch justify-content-between">
                         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
-                            <a href="https://pakpooncity.siaminno.co.th/home">
+                            <a href="../../index.html">
                                 <img alt="Logo" src="https://pakpooncity.siaminno.co.th/logo/logo.png" class="h-60px" />
                                 <span class="logoname">เทศบาลเมืองปากพูน</span>
                             </a>
                         </div>
-                        <!--end::Logo-->
-                        <!--begin::Wrapper-->
                         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
-                            <!--begin::Navbar-->
                             <div class="d-flex align-items-stretch" id="kt_header_nav">
-                                <!--begin::Menu wrapper-->
                                 <div class="header-menu align-items-stretch" data-kt-drawer="true"
                                     data-kt-drawer-name="header-menu"
                                     data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
@@ -144,7 +135,6 @@
                                     data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_header_menu_mobile_toggle"
                                     data-kt-swapper="true" data-kt-swapper-mode="prepend"
                                     data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
-                                    <!--begin::Menu-->
                                     <div class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch"
                                         id="#kt_header_menu" data-kt-menu="true">
                                         <div class="menu-item me-lg-1">
@@ -189,7 +179,7 @@
                                                 class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
                                                 <div class="menu-item">
                                                     <a class="menu-link py-3 "
-                                                        href="../../healthcare/healthData/healtData.js">
+                                                        href="../../healthcare/healthData/healthData.html">
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
@@ -248,23 +238,22 @@
                                             <div
                                                 class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
                                                 <div class="menu-item">
-                                                    <a class="menu-link py-3 "
-                                                        href="https://pakpooncity.siaminno.co.th/users">
+                                                    <a class="menu-link py-3 " href="../../user/userList/userList.html">
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
                                                         <span class="menu-title">รายชื่อผู้ใช้งาน</span>
                                                     </a>
                                                 </div>
-                                                <div class="menu-item">
+                                                <!-- <div class="menu-item">
                                                     <a class="menu-link py-3 "
-                                                        href="https://pakpooncity.siaminno.co.th/roles">
+                                                        href="../../user/userLevel/userLevel.html">
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
                                                         <span class="menu-title">ระดับผู้ใช้งาน</span>
                                                     </a>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
 
@@ -279,16 +268,16 @@
                                                 class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
                                                 <div class="menu-item">
                                                     <a class="menu-link py-3 "
-                                                        href="https://pakpooncity.siaminno.co.th/report">
+                                                        href="../../report/reportSummary/reportSummary.html">
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
-                                                        <span class="menu-title">รางานสรุป</span>
+                                                        <span class="menu-title">รายงานสรุป</span>
                                                     </a>
                                                 </div>
                                                 <div class="menu-item">
                                                     <a class="menu-link py-3 "
-                                                        href="https://pakpooncity.siaminno.co.th/report_appeal">
+                                                        href="../../report/reportSummary/reportA/reportA.html">
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
@@ -391,7 +380,7 @@
                         <div class="container">
                             <div class="card mt-5">
                                 <p></p>
-                                <div class="container" style="width: 95%;">
+                                <div class="container" style="width: 100%;">
                                     <div class="card-title d-flex align-items-center">
                                         <h3 class="fw-bolder m-0 text-gray-800">ร้องเรียน</h3>
                                     </div>
@@ -410,11 +399,9 @@
                                     <div id="London" class="tabcontent" style="display: block;">
                                         <div class="container" id="tb1"></div>
                                     </div>
-
                                     <div id="Paris" class="tabcontent">
                                         <div class="container" id="tb2"></div>
                                     </div>
-
                                     <div id="Tokyo" class="tabcontent">
                                         <div class="container" id="tb3"></div>
                                     </div>

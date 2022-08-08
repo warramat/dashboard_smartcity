@@ -13,8 +13,8 @@ async function loadTable(con) {
   status['รอตรวจสอบ'] = 'tb1';
   status['กำลังแก้ไข'] = 'tb2';
   status['เสร็จสิ้น'] = 'tb3';
-  color['รอตรวจสอบ'] = 'orange';
-  color['กำลังแก้ไข'] = 'yellow';
+  color['รอตรวจสอบ'] = 'red';
+  color['กำลังแก้ไข'] = 'orange';
   color['เสร็จสิ้น'] = 'green';
   switch (con) {
     case 'รอตรวจสอบ':
@@ -42,7 +42,7 @@ async function loadTable(con) {
           <td><span style="color: ${color[con]}">${element.status}</span></td>
           <td>${element.created}</td>
           ${con !== 'รอตรวจสอบ' ? `<td>${element.adminData.name}</td>` : ''}
-          <td><a class="btn btn btn-primary" href="./${redirectURL}.html?_id=${
+          <td><a class="btn btn-light btn-active-light-primary btn-lg" href="./${redirectURL}.html?_id=${
       element._id
     }">จัดการ</a></td>
         </tr>`;
