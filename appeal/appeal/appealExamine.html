@@ -25,6 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./appeal/appeal/print.css" media="print">
     <link href="../../index.css" rel="stylesheet">
     <link href="./appealEdit.css" rel="stylesheet">
     <style>
@@ -320,7 +321,7 @@
                     </div>
 
                     <div class="post d-flex flex-column-fluid" id="kt_post">
-                        <div id="kt_content_container" class="container">
+                        <div id="kt_content_container" class="containe  r">
                             <div class="card mb-5 mb-xl-10">
                                 <div class="card-body pt-9 pb-0">
                                     <div class="d-flex flex-wrap flex-sm-nowrap mb-3">
@@ -460,9 +461,9 @@
                                     <div class="card-title m-0">
                                         <h3 class="fw-bolder m-0">รายละเอียด</h3>
                                     </div>
-                                    <button style="float: right;" type="button"
+                                    <button style="float: right;" type="button" id="print" name="button"
                                         class="btn  align-self-center btn btn-success"
-                                        onclick="printDiv('printableArea')">พิมพ์</button>
+                                        onclick="window.print();">พิมพ์</button>
                                 </div>
                                 <div class="card-body p-9">
                                     <div class="row mb-7">

@@ -13,6 +13,7 @@ async function loadTable(con) {
   status['รอตรวจสอบ'] = 'tb1';
   status['กำลังแก้ไข'] = 'tb2';
   status['เสร็จสิ้น'] = 'tb3';
+  
   color['รอตรวจสอบ'] = 'red';
   color['กำลังแก้ไข'] = 'orange';
   color['เสร็จสิ้น'] = 'green';

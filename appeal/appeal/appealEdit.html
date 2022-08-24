@@ -27,6 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400&display=swap" rel="stylesheet">
     <link href="../../index.css" rel="stylesheet">
     <link href="./appealEdit.css" rel="stylesheet">
+    <link rel="stylesheet" href="./appeal/appeal/print.css" media="print">
     <style>
 
     </style>
@@ -436,9 +437,7 @@
                                     <div class="card-title m-0">
                                         <h3 class="fw-bolder m-0">รายละเอียด</h3>
                                     </div>
-                                    <button style="float: right;" type="button"
-                                        class="btn  align-self-center btn btn-success"
-                                        onclick="printDiv('printableArea')">พิมพ์</button>
+                                    <button type="button" name="button" id="print" onclick="window.print()"></button>
                                 </div>
                                 <div class="card-body p-9">
                                     <div class="row mb-7">
