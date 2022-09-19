@@ -1,6 +1,6 @@
 window.onload = async (e) => {
   await loadTable('รอตรวจสอบ');
-  await loadTable('กำลังดำเนินงาน');
+  await loadTable('กำลังดำเนินการ');
   await loadTable('เสร็จสิ้น');
 };
 async function loadTable(con) {
@@ -11,18 +11,18 @@ async function loadTable(con) {
   let count = 0;
   let redirectURL = '';
   status['รอตรวจสอบ'] = 'tb1';
-  status['กำลังดำเนินงาน'] = 'tb2';
+  status['กำลังดำเนินการ'] = 'tb2';
   status['เสร็จสิ้น'] = 'tb3';
   
   color['รอตรวจสอบ'] = 'red';
-  color['กำลังดำเนินงาน'] = 'orange';
+  color['กำลังดำเนินการ'] = 'orange';
   color['เสร็จสิ้น'] = 'green';
   switch (con) {
     case 'รอตรวจสอบ':
       baseURL += '1';
       redirectURL = 'appealEdit';
       break;
-    case 'กำลังดำเนินงาน':
+    case 'กำลังดำเนินการ':
       baseURL += '2';
       redirectURL = 'appealExamine';
       break;
