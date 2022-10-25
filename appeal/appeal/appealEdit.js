@@ -63,26 +63,31 @@ function setPage(data) {
     document.getElementById(
       "name"
     ).innerText = `${data.prefix} ${data.name} ${data.lastname}`;
-    //document.getElementById("created1").innerText = data.created;
-   /* document.getElementById("adminstart").innerText = ` ${toThaidate(
+
+    document.getElementById(
+      "date"
+    ).innerText = `${data.day} ${data.month} ${data.year}`;
+    document.getElementById("time").innerText = data.time;
+    document.getElementById("created1").innerText = data.created;
+    document.getElementById("adminstart").innerText = ` ${toThaidate(
       data.created
-    )} เวลา ${getTime(data.created)} โดย ${data.name} ${data.lastname}`;*/
+    )} เวลา ${getTime(data.created)} โดย ${data.name} ${data.lastname}`;
 
-    /*document.getElementById("adminend").innerText = ` ${toThaidate(
+    document.getElementById("adminend").innerText = ` ${toThaidate(
       data.edit
-    )} เวลา ${getTime(data.edit)} โดย ${data.admin_startData.name}`;*/
+    )} เวลา ${getTime(data.edit)} โดย ${data.admin_startData.name}`;
 
 
-    /*document.getElementById("end").innerText = ` ${toThaidate(
+    document.getElementById("end").innerText = ` ${toThaidate(
       data.end
-    )} เวลา ${getTime(data.end)} โดย ${data.admin_startData.name}`;*/
-    /*console.log(`${toThaidate(
+    )} เวลา ${getTime(data.end)} โดย ${data.admin_startData.name}`;
+    console.log(`${toThaidate(
       data.end
-    )} เวลา ${getTime(data.end)} โดย ${data.admin_startData.name}`);*/
+    )} เวลา ${getTime(data.end)} โดย ${data.admin_startData.name}`);
 
-   /* document.getElementById("response_time").innerText = ` ${toThaidate(
+   document.getElementById("response_time").innerText = ` ${toThaidate(
       data.response_time
-    )} เวลา ${getTime(data.response_time)}`;*/
+    )} เวลา ${getTime(data.response_time)}`;
 
     document.getElementById(
       "map"

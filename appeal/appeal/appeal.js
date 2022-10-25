@@ -42,8 +42,6 @@ async function loadTable(con) {
           <td>${element.fullname}</td>
           <td><span style="color: ${color[con]}">${element.status}</span></td>
           <td>${element.created}</td>
-          <td>${element.day} <span>${element.month}</span><span>${element.year}</span></td>
-          <td>${element.time}</td>
           ${con !== 'รอตรวจสอบ' ? `<td>${element.adminData.name}</td>` : ''}
           <td><a class="btn btn-light btn-active-light-primary btn-lg" href="./${redirectURL}.html?_id=${
       element._id
