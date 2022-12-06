@@ -87,7 +87,7 @@ function sendmsg(body, id) {
     redirect: 'follow'
   };
   fetch(
-    'https://smartcity-pakpoon-api.herokuapp.com/appeal/addRes/' + id,
+    'https://smartcity.onrender.com/appeal/addRes/' + id,
     requestOptions
   )
     .then((response) => response.text())

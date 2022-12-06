@@ -1,6 +1,6 @@
 var baseURL =
-  'https://smartcity-pakpoon-api.herokuapp.com/userSmart/data/pagination';
-var SexURL = 'https://smartcity-pakpoon-api.herokuapp.com/userSmart/data/sex';
+  'https://smartcity.onrender.com/userSmart/data/pagination';
+var SexURL = 'https://smartcity.onrender.com/userSmart/data/sex';
 async function makechart() {
   let options = {
     chart: {

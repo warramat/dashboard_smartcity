@@ -86,7 +86,7 @@ function submitAppeal() {
       };
       try {
         await fetch(
-          "https://smartcity-pakpoon-api.herokuapp.com/appeal/submitappeal/" +
+          "https://smartcity.onrender.com/appeal/submitappeal/" +
             _id,
           requestOptions
         );
@@ -95,7 +95,7 @@ function submitAppeal() {
           id: adminData.id,
         });
         await fetch(
-          "https://smartcity-pakpoon-api.herokuapp.com/appeal/editappeal/" +
+          "https://smartcity.onrender.com/appeal/editappeal/" +
             _id,
           requestOptions
         );
