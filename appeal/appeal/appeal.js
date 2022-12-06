@@ -43,7 +43,7 @@ async function loadTable(con) {
           <td><span style="color: ${color[con]}">${element.status}</span></td>
           <td>${element.created}</td>
           ${con !== 'รอตรวจสอบ' ? `<td>${element.adminData.name}</td>` : ''}
-          <td><a class="btn btn-light btn-active-light-primary btn-lg" h ref="./${redirectURL}.html?_id=${
+          <td><a class="btn btn-light btn-active-light-primary btn-lg" href="./${redirectURL}.html?_id=${
       element._id
     }">จัดการ</a></td>
         </tr>`;
