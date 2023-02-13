@@ -1,135 +1,109 @@
-var baseURL =
-  'https://smartcity.onrender.com/userSmart/data/pagination';
-var SexURL = 'https://smartcity.onrender.com/userSmart/data/sex';
-async function makechart() {
-  let options = {
-    chart: {
-      type: 'pie',
-      height: 500,
-      width: '100%',
-      toolbar: { show: false },
-      zoom: { enabled: true },
-      fontFamily: '"Nunito"',
-      foreColor: '#373d3f'
-    },
-    plotOptions: {
-      bar: { horizontal: false }
-    },
-    colors: ['#009ef7', '#ff6384'],
-    series: await getSex(),
-    dataLabels: { enabled: false },
-    labels: [['ผู้ชาย'], ['ผู้หญิง']],
-    title: {
-      text: 'จำแนกตามเพศ'
-    },
-    subtitle: {
-      text: '',
-      align: ''
-    },
-    xaxis: {
-      categories: []
-    },
-    grid: { show: false },
-    markers: { show: false }
-  };
-
-  let chart = new ApexCharts(
-    document.querySelector('#prbzwucjexlokidfvshgtamqy'),
-    options
-  );
-  chart.render();
-}
-
-function makechart2() {
-  let options = {
-    chart: {
-      type: 'bar',
-      height: 500,
-      width: '100%',
-      toolbar: { show: false },
-      zoom: { enabled: true },
-      fontFamily: '"Nunito"',
-      foreColor: '#373d3f'
-    },
-    plotOptions: {
-      bar: { horizontal: false }
-    },
-    colors: [
-      '#008FFB',
-      '#00E396',
-      '#feb019',
-      '#ff455f',
-      '#775dd0',
-      '#80effe',
-      '#0077B5',
-      '#ff6384',
-      '#c9cbcf',
-      '#0057ff',
-      '#00a9f4',
-      '#2ccdc9',
-      '#5e72e4'
-    ],
-    series: [
-      { name: 'ชาย', data: [1, 1, 98, 1, 10] },
-      { name: 'หญิง', data: [5, 1, 132, 1, 10] }
-    ],
-    dataLabels: { enabled: false },
-    title: {
-      text: 'จำแนกเพศตามอำเภอ'
-    },
-    subtitle: {
-      text: '',
-      align: ''
-    },
-    xaxis: {
-      categories: [
-        'พรหมคิรี',
-        'เมืองนครศรีธรรมราช',
-        'ท่าศาลา',
-        'สิชล',
-        'ร่อนพิบูลย์'
-      ]
-    },
-    grid: { show: false },
-    markers: { show: false }
-  };
-  let chart = new ApexCharts(
-    document.querySelector('#aejdtmqyilohfubngkcpxvswr'),
-    options
-  );
-  chart.render();
-}
-
-async function req(url) {
-  const response = await fetch(url);
-  const data = await response.json();
-  console.log(data);
-  return data;
-}
-
-async function getISS(con, id) {
-  const url = baseURL + con;
-  const data = await req(url);
-  document.getElementById(id).textContent = data.total;
-}
-
-async function getSex() {
-  let totalSex = [];
-  let sex = SexURL + '?sex=ชาย';
-  let data = await req(sex);
-  totalSex[0] = data.total;
-  sex = SexURL + '?sex=หญิง';
-  data = await req(sex);
-  totalSex[1] = data.total;
-  return totalSex;
-}
-
-window.onload = async function () {
-  makechart();
-  makechart2();
-  getISS('?province=นครศรีธรรมราช&sub_district=&district=', 'total');
-  getISS('?province=&sub_district=&district=เมืองนครศรีธรรมราช', 'district');
-  getISS('?province=&district=&sub_district=ปากพูน', 'sub_district');
-  getISS('?province=&district=&sub_district=ปากพูน', 'sub_district');
-  getISS('?province=&sub_district=&district=', 'allUser');
+window.onload = async (e) => {
+  await loadTable('รอตรวจสอบ');
+  await loadTable('กำลังดำเนินการ');
+  await loadTable('เสร็จสิ้น');
 };
+async function loadTable(con) {
+  let baseURL = 'https://smartcity.onrender.com/appeal/app/';
+  let trHTML = '';
+  let status = [];
+  let color = [];
+  let count = 0;
+  let redirectURL = '';
+  status['รอตรวจสอบ'] = 'tb1';
+  status['กำลังดำเนินการ'] = 'tb2';
+  status['เสร็จสิ้น'] = 'tb3';
+  
+  color['รอตรวจสอบ'] = 'red';
+  color['กำลังดำเนินการ'] = 'orange';
+  color['เสร็จสิ้น'] = 'green';
+  switch (con) {
+    case 'รอตรวจสอบ':
+      baseURL += '1';
+      redirectURL = 'appealEdit';
+      break;
+    case 'กำลังดำเนินการ':
+      baseURL += '2';
+      redirectURL = 'appealExamine';
+      break;
+    case 'เสร็จสิ้น':
+      baseURL += '3';
+      redirectURL = 'appealFinish';
+      break;
+  }
+  let data = await (await fetch(baseURL)).json();
+  data = data.reverse();
+  console.log(data[0]);
+  data.forEach(async (element, i) => {
+    count++;
+    trHTML += `<tr>
+          <td>${element.type}</td>
+          <td>${element.details}</td>
+          <td>${element.fullname}</td>
+          <td><span style="color: ${color[con]}">${element.status}</span></td>
+          <td>${element.created}</td>
+          ${con !== 'รอตรวจสอบ' ? `<td>${element.adminData.name}</td>` : ''}
+          <td><a class="btn btn-light btn-active-light-primary btn-lg" href="./${redirectURL}.html?_id=${
+      element._id
+    }">จัดการ</a></td>
+        </tr>`;
+  });
+  document.querySelector('.' + status[con]).innerText = ' (' + count + ') ';
+  let HTML = `<div class="table-responsive">
+  <table id="customers" style="width: 100%;">
+      <thead>
+          <tr>
+              <th scope="col">เรื่อง</th>
+              <th scope="col">หัวข้อ อาการ</th>
+              <th scope="col">ชื่อผู้แจ้ง</th>
+              <th scope="col">สถานะ</th>
+              <th scope="col">วันเวลาที่แจ้ง</th>
+              ${con !== 'รอตรวจสอบ' ? '<th scope="col">ผู้รับผิดชอบ</th>' : ''}
+              <th scope="col">จัดการ</th>
+          </tr>
+      </thead>
+      <tbody id="mytable">
+          <tr>
+              ${trHTML}
+          </tr>
+      </tbody>
+  </table>
+</div>`;
+  document.getElementById(status[con]).innerHTML = HTML;
+}
+
+function loadUser() {
+  var base64Url = jwt.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split('')
+      .map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join('')
+  );
+  const obj = JSON.parse(jsonPayload);
+  document.getElementById('userid').innerText = obj.userid;
+  document.getElementById('name').innerText = obj.name;
+}
+
+function logout() {
+  localStorage.removeItem('jwt');
+  window.location.href = '../../login.html';
+}
+
+async function openTable(evt, con, id) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName('tabcontent');
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = 'none';
+  }
+  tablinks = document.getElementsByClassName('tablinks');
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace('active', '');
+  }
+  document.getElementById(id).style.display = 'block';
+  evt.currentTarget.className += 'active';
+  await loadTable(con);
+}
