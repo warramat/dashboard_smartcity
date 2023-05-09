@@ -13,7 +13,7 @@ async function loadTable(con) {
   let redirectURL = '';
   status['รอตรวจสอบ'] = 'tb1';
   status['กำลังดำเนินการ'] = 'tb2';
-  status['เสร็จสิ้น'] = 'tb3';
+  status['เสร็จสิ้น'] = 'tb4';
   
   color['รอตรวจสอบ'] = 'red';
   color['กำลังดำเนินการ'] = 'orange';
@@ -28,7 +28,7 @@ async function loadTable(con) {
       redirectURL = 'appealExamine';
       break;
     case 'เสร็จสิ้น':
-      baseURL += '3';
+      baseURL += '2';
       redirectURL = 'appealFinish';
       break;
   }
