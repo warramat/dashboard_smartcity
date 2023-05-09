@@ -5,7 +5,6 @@ window.onload = async (e) => {
 };
 async function loadTable(con) {
   let baseURL = 'https://smartcity.onrender.com/appeal/app/';
-  // let baseURL = 'https://smartcity.onrender.com/appeal/appealAll';
   let trHTML = '';
   let status = [];
   let color = [];
@@ -13,7 +12,7 @@ async function loadTable(con) {
   let redirectURL = '';
   status['รอตรวจสอบ'] = 'tb1';
   status['กำลังดำเนินการ'] = 'tb2';
-  status['เสร็จสิ้น'] = 'tb4';
+  status['เสร็จสิ้น'] = 'tb3';
   
   color['รอตรวจสอบ'] = 'red';
   color['กำลังดำเนินการ'] = 'orange';
@@ -28,7 +27,7 @@ async function loadTable(con) {
       redirectURL = 'appealExamine';
       break;
     case 'เสร็จสิ้น':
-      baseURL += '2';
+      baseURL += '3';
       redirectURL = 'appealFinish';
       break;
   }
