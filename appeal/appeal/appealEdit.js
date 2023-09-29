@@ -68,7 +68,9 @@ function setPage(data) {
       "date"
     ).innerText = `${data.day} ${data.month} ${data.year}`;
     document.getElementById("time").innerText = data.time;
-    document.getElementById("created1").innerText = data.created;
+    document.getElementById("created1").innerText = ` ${toThaidate(
+      data.created
+    )}`;
     document.getElementById("adminstart").innerText = ` ${toThaidate(
       data.created
     )} เวลา ${getTime(data.created)} โดย ${data.name} ${data.lastname}`;
