@@ -298,6 +298,90 @@ async function  dataAll(){
     let {total} = await (await fetch("https://smartcity.onrender.com/appeal/find/status?status=เสร็จสิ้น&topic=fire")).json()
     document.getElementById('fireFinish').innerHTML = total
   }
+
+
+
+ 
+  fetch('https://smartcity.onrender.com/appeal/stars/5')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data); // ตรวจสอบข้อมูลที่ได้รับมา
+        document.getElementById('stars_5').innerHTML = data;
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+
+  fetch('https://smartcity.onrender.com/appeal/stars/4')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data); // ตรวจสอบข้อมูลที่ได้รับมา
+        document.getElementById('stars_4').innerHTML = data;
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+  fetch('https://smartcity.onrender.com/appeal/stars/3')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data); // ตรวจสอบข้อมูลที่ได้รับมา
+        document.getElementById('stars_3').innerHTML = data;
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+
+  fetch('https://smartcity.onrender.com/appeal/stars/2')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data); // ตรวจสอบข้อมูลที่ได้รับมา
+        document.getElementById('stars_2').innerHTML = data;
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+  
+  fetch('https://smartcity.onrender.com/appeal/stars/1')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data); // ตรวจสอบข้อมูลที่ได้รับมา
+        document.getElementById('stars_1').innerHTML = data;
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+
+
    
    window.onload = async () => {
     dataAll()
